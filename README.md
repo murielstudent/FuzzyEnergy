@@ -1,29 +1,30 @@
 # FuzzyEnergy
-Code for the forecasting and anomaly detection using Fuzzy Logic
+Code for forecasting and anomaly detection using a Fuzzy Inference System
 
 ### Dependencies:
 
 * [Skicit-learn](http://scikit-learn.org/) - Machine Learning in Python
 
-numpy, itertools, csv, random, python 3.4
+Basics: numpy, os, sys, matplotlib, itertools, csv, random, python 3.4
 
 ## How to use
+
+For examples, see the DEMOS directory
 
 ## tuning
 you can tune the system by giving the plot=True argument to cluster(). You will see for each feature, 
 a plot of the approximate data with the cluster centroids assigned: 
 
 ```
-Ncentroids = cluster(data, target_col, Ncentroids, plot=True)
+Ncentroids = cluster(data, target_col, number_of_centroids, plot=True)
 ```
 
 ## training:
+
 ### specify parameters
 
 ```
-### what is the target column of your data
-
-
+### the target column of your data
 target_col = 0
 
 ### specify overlap of your sets, or the variance of the gaussian
@@ -34,7 +35,7 @@ overlap = 0.2
 
 mf = 'Gaussian'
 
-### specify for eaach feature the amount of centroids (can also be an integer if same for all)
+### specify for each feature the amount of centroids (can also be an integer if same for all)
 
 Ncentroids = [7,7,5,5,7,7,7,7,7,7,7,7,7,7,7,7,7,5,5,7,7,7]
 
