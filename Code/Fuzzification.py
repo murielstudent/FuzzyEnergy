@@ -1,10 +1,17 @@
-from sklearn.cluster import KMeans
-from sklearn import preprocessing
+# The Fuzzification process of crisp data
+# and all its needed helper functions.
+#
+# Functions: cluster, fuzzify, scale
+
 import numpy as np
 import csv
-import membership_function
 import itertools
 import matplotlib.pyplot as plt
+
+from sklearn.cluster import KMeans
+from sklearn import preprocessing
+
+import membership_function
 
 def cluster(data, target_col, centroid_list, plot=True):
 	'''
@@ -135,55 +142,3 @@ def scale(data):
 		scaled_data.append(scaled_x)
 	return(np.array(scaled_data), min_x, max_x)
 	
-
-if __name__ == "__main__":
-
-	# NTH_path = "/Users/murielhol/Fuzz2/Data/NTH/NTH_R_clean_2008-2012.csv"
-	# NTH = []
-	# with open(NTH_path) as csvfile:
-	# 	reader = csv.reader(csvfile, delimiter=',')
-	# 	for row in reader:
-	# 		try:
-	# 			NTH.append([float(x) for x in row[1:]])
-	# 		except: 
-	# 			print(row)
-	# 			ValueError
-
-	
-	# # scale the data
-	# data, min_x, max_x = scale(np.array(NTH)[:, :])
-
-	# Ncentroids = [11,11,11,11,11,7,11,11,11,11,11,11,11,11,11,11,11,5,5,11,7,7]
-	# # calculate mf centroids
-	# centroids = cluster(data, 0, Ncentroids, plot=True)
-
-
-	path = "/Users/murielhol/Fuzz2/Data/Bdata/e2_in_train.csv"
-	data_train = []
-	with open(path, "r") as file:
-		reader = file.readlines()
-		for row in reader:
-			try:
-				data_train.append([float(x) for x in row.split()])
-			except: 
-				print(row)
-				ValueError
-
-	
-	# scale the data
-	data, min_x, max_x = scale(np.array(data_train))
-
-
-	Ncentroids = 7
-	# calculate mf centroids
-	centroids = cluster(data, 0, Ncentroids, plot=True)
-
-
-
-
-
-
-
-
-
-

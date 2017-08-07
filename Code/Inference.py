@@ -1,6 +1,12 @@
+# The inference process implemented for inferring 
+# the crisp output and number of anomalies
+# of a given Fuzzy Inference System.
+#
+# Functions: infer
 
 import pickle
 import numpy as np
+
 from Fuzzification import fuzzify
 from Defuzzification import defuzzify
 
@@ -59,8 +65,3 @@ def infer(data, rules, centroids, overlap, mf, target_centroids, th = None):
 			outliers = np.mean(mean_firings)
 
 	return(crisp_output,outliers)
-
-
-		
-
-

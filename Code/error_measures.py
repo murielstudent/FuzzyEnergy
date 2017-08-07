@@ -1,9 +1,9 @@
-#########################################################
+# The error measures used in this project
+#
 # Rooth Mean Squared Error
 # Mean Absolute Error
-# both after descaling the output of the system first
-#########################################################
-
+#
+# ! Both calculated after descaling the output of the system first
 
 import numpy as np
 
@@ -12,7 +12,7 @@ def RMSE(min_y, max_y, yhat, y):
 	# original scale, to prevent scale bias
 	yhat = descale(yhat, min_y, max_y)
 	y = descale(y, min_y, max_y)
-	return(np.sqrt(np.mean(np.power(np.subtract(yhat,y),2))))
+	return(np.mean(np.power(np.subtract(yhat,y),2)))
 
 def MAE(min_y, max_y, yhat, y):
 	# first scale output and target back to 
@@ -20,7 +20,6 @@ def MAE(min_y, max_y, yhat, y):
 	yhat = descale(yhat, min_y, max_y)
 	y = descale(y, min_y, max_y)
 	return(np.mean(np.absolute(np.subtract(yhat,y))))
-
 
 def descale(scaled_y, min_y, max_y):
 	'''
@@ -38,5 +37,3 @@ def descale(scaled_y, min_y, max_y):
 	# descaled y = scaled_y *(ymax-ymin)+ymin
 	# descaled_y = [(y*(diff)+min_y) for y in scaled_y]
 	return(descaled_y)
-
-	

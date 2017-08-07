@@ -1,9 +1,8 @@
 
-#########################################################
-# Deffuzzification of fuzzy ouputs
+# Deffuzzification of fuzzy ouputs to 
+# crisp outputs
 #
 # Functions: defuzzify
-#########################################################
 
 import numpy as np
 

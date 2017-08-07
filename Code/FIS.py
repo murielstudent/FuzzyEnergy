@@ -1,24 +1,18 @@
-#########################################################
-#
-#
 # FIS: Fuzzy Inference System
 # Training a FIS and testing with a FIS
 #
 # Functions: train, write, read and test
-#########################################################
-
-from Fuzzification import scale, fuzzify, cluster
-from Inference import infer
-from error_measures import RMSE, MAE, descale
-
-import membership_function
-import WM
-import SA
 
 import numpy as np
 import pickle
 import csv
 
+from Fuzzification import scale, fuzzify, cluster
+from Inference import infer
+from error_measures import RMSE, MAE, descale
+import membership_function
+import WM
+import SA
 
 def read(file):
 	'''
@@ -117,7 +111,6 @@ def train(FIS_name, data, target_col, mf, Ncentroids, overlap, alpha = 0.5, iter
 	if sa:
 		method = 'WM+SA'
 		RB = SA.search(data, targets, RB, alpha, feature_centroids, overlap, mf, target_centroids, min_x[target_col], max_x[target_col], plot = sa_plot, iterations = iterations)
-
 	# Write FIS file in the format:
 	# FIS_name.FIS
 	with open(FIS_name + '.FIS', "w") as fis_file:
@@ -126,7 +119,6 @@ def train(FIS_name, data, target_col, mf, Ncentroids, overlap, alpha = 0.5, iter
 
 def test(data, mf, overlap, target_centroids, feature_centroids, RB, target_col, threshold = None):
 	'''
-
 	Tests a FIS using the parameters of a FIS and test data
 
 	Inputs: 
@@ -166,10 +158,7 @@ def test(data, mf, overlap, target_centroids, feature_centroids, RB, target_col,
 		# for out in outliers:
 		# 	outlist.append(descale(out, min_x, max_x))
 		# pickle.dump(outlist, open('outliers_NTH.p', 'wb'))
-
 	
-
-
 def write(text_file, algorithm, mf, overlap, target_centroids, feature_centroids, RB):
 	text_file.write("Method\n")
 	text_file.write(algorithm)

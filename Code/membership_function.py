@@ -1,21 +1,23 @@
-######################################################################################
+# Implementation of several membership functions
+# in order to return the membership of a given 
+# crisp value.
+# 
 # source: http://www.csee.wvu.edu/classes/cpe521/presentations/Membership.pdf
 #
 # 3 different membership functions
 # triangle, trapezoid and Gaussian
 # 
-# input Gaussian: means, variance and a crisp value
+# input Gaussian: mean, variance and a crisp value
 # input traingle: list of 3 membership function values of 1 specific set and a crisp value
 # input traingle: list of 4 membership function values of 1 specific set and a crisp value
 #
 # returns: membership value
-#######################################################################################
 
 
 import numpy as np
 
-# calculates the membership value of gaussian set
-def Gaussian(values, x ):
+# calculates the membership value of a Gaussian set
+def Gaussian(values, x):
 	mean = values[0]
 	variance = values[1]
 	f = np.exp(-(np.divide(((x-mean)**2), (variance**2))))

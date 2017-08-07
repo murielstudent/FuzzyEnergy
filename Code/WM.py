@@ -1,9 +1,8 @@
+# An implementation of the Wang and Mendel method for rule learning :
+# Wang L X, Mendel, J M (1992) Generating fuzzy rules by learning from examples. Systems, Man and
+# Cybernetics. IEE transactions on systems. 22: 1414-1427.
 #
-#
-#
-#
-#
-
+# Functions: learn
 
 
 from Fuzzification import fuzzify
